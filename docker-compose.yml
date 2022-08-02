@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  web:
+    build:
+      context: /frontend-vue
+      dockerfile: Dockerfile
+    container_name: 'frontend-vue'
+    ports:
+      - "8080:80"
+  api_services:
+    build:
+      context: /GeationBackEnd
+      dockerfile: Dockerfile
+    container_name: 'backend-spring'
+    image: backend-spring
+    ports:
+      - "8443:8443"
+    depends_on:
+      - postgresqldb
+
+  postgresqldb:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: contactlist
+      POSTGRES_USER: caleb
+      POSTGRES_PASSWORD: 2892
+    ports:
+      - "5432:5432"

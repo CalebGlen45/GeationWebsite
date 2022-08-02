@@ -1,0 +1,3 @@
+rootProject.name = 'GeationWebsite'
+include 'frontend-vue'
+include 'GeationBackEnd'
