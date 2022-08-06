@@ -21,7 +21,6 @@ services:
       context: /GeationBackEnd
       dockerfile: Dockerfile
     container_name: 'backend-spring'
-    image: backend-spring
     networks:
       project_network:
     ports:
